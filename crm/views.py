@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -9,5 +9,11 @@ def home_view(request):
 
 def register(request):
     form = UserCreationForm()
+
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            return redirect('home')
+
     context = {'form': form}
     return render(request, 'crm/register.html', context)
