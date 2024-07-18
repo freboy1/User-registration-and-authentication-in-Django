@@ -21,4 +21,4 @@ def register(request):
 
 
 def dashboard(request):
-    return HttpResponse('This is Dashboard')
+    return render(request, 'crm/dashboard.html')
