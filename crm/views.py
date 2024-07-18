@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .forms import RegisterForm
 
 # Create your views here.
@@ -22,3 +22,9 @@ def register(request):
 
 def dashboard(request):
     return render(request, 'crm/dashboard.html')
+
+
+def my_login(request):
+    form = AuthenticationForm()
+    context = {'form': form}
+    return render(request, 'crm/login.html', context)
