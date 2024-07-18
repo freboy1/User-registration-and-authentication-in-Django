@@ -18,3 +18,7 @@ def register(request):
 
     context = {'form': form}
     return render(request, 'crm/register.html', context)
+
+
+def dashboard(request):
+    return HttpResponse('This is Dashboard')
