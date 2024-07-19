@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .forms import RegisterForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 def home_view(request):
@@ -38,3 +38,7 @@ def my_login(request):
 
     context = {'form': form}
     return render(request, 'crm/login.html', context)
+
+def my_logout(request):
+    logout(request)
+    return redirect('')
