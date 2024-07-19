@@ -41,4 +41,4 @@ def my_login(request):
 
 def my_logout(request):
     logout(request)
-    return redirect('')
+    return redirect('home')
