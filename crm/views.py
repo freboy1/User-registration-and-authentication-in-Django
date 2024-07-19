@@ -30,7 +30,7 @@ def my_login(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid:
-            user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
             if user is not None:
                 login(request, user)
                 return redirect('dashboard')
