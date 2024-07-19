@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .forms import RegisterForm
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def home_view(request):
     return render(request, 'crm/home.html')
@@ -19,7 +20,7 @@ def register(request):
     context = {'form': form}
     return render(request, 'crm/register.html', context)
 
-
+@login_required(login_url='login')
 def dashboard(request):
     return render(request, 'crm/dashboard.html')
 
