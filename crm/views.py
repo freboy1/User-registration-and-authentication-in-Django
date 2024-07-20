@@ -15,7 +15,7 @@ def register(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('login')
 
     context = {'form': form}
     return render(request, 'crm/register.html', context)
